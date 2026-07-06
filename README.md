@@ -257,35 +257,6 @@ docker compose -f docker/docker-compose.yml up -d
 | 配置管理 | pydantic-settings | 启动校验，SecretStr 防泄露 |
 | 文档解析 | pypdf / python-docx / python-pptx | 多格式覆盖 |
 
-## 🎯 面试亮点
-
-这个项目展示了以下工程能力，面试时可以展开讲：
-
-1. **"我的 RAG 是真正的向量检索，不是把全文塞进 prompt"**
-   - 解析→分块→嵌入→检索→可选重排序 五级流水线
-   - chunk_size/overlap 的含义和调参经验
-   - 为什么选 MiniLM，不是 OpenAI Embedding
-
-2. **"Agent 工具调用是原生 Function Calling，不是 JSON 字符串解析"**
-   - `tools` + `tool_choice="auto"` 结构化响应
-   - 不会有 JSON 格式错误的坑
-
-3. **"代码执行是 Docker 容器隔离，不是 subprocess 黑名单"**
-   - network_mode=none, read_only, cap_drop=ALL
-   - 内存限制、超时控制、执行完自动销毁
-
-4. **"文档解析用了策略模式，加新格式只需加一个类"**
-   - 抽象基类 + registry 自动分发
-   - 开闭原则：对扩展开放，对修改关闭
-
-5. **"前后端分离，API 是契约"**
-   - FastAPI + Streamlit，前端随时可换
-   - 所有业务逻辑在后端，前端只做渲染
-
-6. **"配置管理用 pydantic-settings，启动时校验"**
-   - 配错立即报错，不会带病运行
-   - SecretStr 防止 API Key 泄露到日志
-
 ## 📖 使用示例
 
 ### Web UI
