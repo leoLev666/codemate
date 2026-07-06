@@ -5,3 +5,6 @@ __pycache__/
 .idea/
 .vscode/
 chroma_db/
+data/
+*.db
+codemate.egg-info/
